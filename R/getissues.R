@@ -1,3 +1,15 @@
+#' Title
+#'
+#' @param github_api_endpoint
+#' @param url
+#' @param repo_owner
+#' @param repo_name
+#' @param PAT
+#'
+#' @return
+#' @export
+#'
+#' @examples
 function_test <- function(github_api_endpoint, url, repo_owner, repo_name, PAT){
 
   issues_gh <- gh::gh(github_api_endpoint,
