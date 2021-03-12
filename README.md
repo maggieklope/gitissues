@@ -7,17 +7,20 @@ The goal of gitissues is to ...
 
 ## Installation
 
-You can install the released version of gitissues from [CRAN](https://CRAN.R-project.org) with:
+You can gitissues from with:
 
 ``` r
-install.packages("gitissues")
+install.packages("devtools")
+devtools::install_github("maggieklope/gitissues")
 ```
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example which shows you how to create a data frame of issues for a repo:
 
 ``` r
+# First, need to save GitHub PAT
+
 library(gitissues)
 ## basic example code
 ```
