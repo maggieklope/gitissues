@@ -10,7 +10,7 @@
 #' @export
 #'
 #' @examples
-function_test <- function(github_api_endpoint, url, repo_owner, repo_name, PAT){
+get_issues <- function(github_api_endpoint, url, repo_owner, repo_name, PAT){
 
   issues_gh <- gh::gh(github_api_endpoint,
                   .api_url = url,
