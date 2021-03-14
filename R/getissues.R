@@ -1,10 +1,12 @@
 #' Title
 #'
-#' @param github_api_endpoint
-#' @param url
-#' @param repo_owner
-#' @param repo_name
-#' @param PAT
+#' Description
+#'
+#' @param github_api_endpoint Character. URL for git repo.  Typically in format of /repos/user/name/issues
+#' @param url Character. Base URL used to access the API.  Typically "https://api.github.com" for personal accounts, and "https://enterprise address/api/v3" for enterprise accounts
+#' @param repo_owner Character. User or enterprise that owns the repo.
+#' @param repo_name Character. The name of the repo
+#' @param PAT Character. Personal Authentication Token from Github.
 #'
 #' @return
 #' @export
