@@ -1,0 +1,60 @@
+---
+title: "Authentification"
+author: "Maggie Klope"
+date: "3/19/2021"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Authentification}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+getissues works for personal, private, and enterprise GitHub repos, but requires the use of GitHub Personal Authentification Token (PATs) for access.
+
+This can be done in a number of ways.  Below we illustrate how to use the FUNCTION from PACKAGE NAME.
+
+To create a token, follow the guide outlined by [Github](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
+
+First, create a new keyring backend:
+```{r}
+kb <- backend_file$new()
+```
+
+Then, choose a password for your keyring.  Enter the password in the new window when propmted.
+This only needs to be run once for each R session.
+```{r}
+kb$keyring_create("Git_Credentials")
+```
+
+Next, use your password to unlock the keyring when prompted.
+```{r}
+kb$keyring_unlock("Git_Credentials") 
+```
+
+Now you can save your PAT and credentials within the keyring
+```{r}
+kb$set(service = "Github_Enterprise_Token", username = "username", keyring = "Git_Credentials")
+```
+
+Finally, lock your keyring
+```{r}
+kb$keyring_lock("Git_Credentials") 
+```
+
+Now you can access your PAT safely through your keyring when using the gitissues package setting the PAT argument to:
+kb$get("Github_Enterprise_Token", keyring = "Git_Credentials")
+```{r}
+# get_issues(github_api_endpoint = "/repos/owner/repo/issues",
+#            url = "https:://api.github.com",
+#            repo_owner = "owner",
+#            repo_name = "repo",
+#            PAT = kb$get("Github_Enterprise_Token", keyring = "Git_Credentials"))
+
+```
