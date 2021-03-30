@@ -1,6 +1,6 @@
-#' Title
+#' GetIssues
 #'
-#' Description
+#' Creates a dataframe with information on issues from a GitHub repository
 #'
 #' @param github_api_endpoint Character. URL for git repo.  Typically in format of /repos/user/name/issues
 #' @param url Character. Base URL used to access the API.  Typically "https://api.github.com" for personal accounts, and "https://enterprise address/api/v3" for enterprise accounts
