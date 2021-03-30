@@ -16,40 +16,42 @@ knitr::opts_chunk$set(
 )
 ```
 
-getissues works for personal, private, and enterprise GitHub repos, but requires the use of GitHub Personal Authentification Token (PATs) for access.
+getissues works for personal and Enterprise GitHub repos, but requires the use of GitHub Personal Authentication Token (PATs) for access.
 
-This can be done in a number of ways.  Below we illustrate how to use the FUNCTION from PACKAGE NAME.
+This can be done in a number of ways, but one of the most secure ways is to set up an encrypted file, especially if you are working on a shared computer or server or sharing your code.
 
-To create a token, follow the guide outlined by [Github](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
+Below we illustrate how to save your PAT using the [keyring package](https://cran.r-project.org/web/packages/keyring/index.html).
 
-First, create a new keyring backend:
+The first step is to obtain a token from GitHub following the guide outlined [here](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
+
+Next, create a new keyring backend:
 ```{r}
-kb <- backend_file$new()
+# kb <- backend_file$new()
 ```
 
-Then, choose a password for your keyring.  Enter the password in the new window when propmted.
-This only needs to be run once for each R session.
+Then, set a password for you keyring. Enter the password in the new window when prompted.
+This only needs to be run once.
 ```{r}
-kb$keyring_create("Git_Credentials")
+# kb$keyring_create("Git_Credentials")
 ```
 
 Next, use your password to unlock the keyring when prompted.
 ```{r}
-kb$keyring_unlock("Git_Credentials") 
+# kb$keyring_unlock("Git_Credentials")
 ```
 
-Now you can save your PAT and credentials within the keyring
+Now you can save your PAT and credentials within the keyring.  Each keyring can contain many keys, which is are defined by their service name and password.
 ```{r}
-kb$set(service = "Github_Enterprise_Token", username = "username", keyring = "Git_Credentials")
+# # Repos on an Enterprise account must be named "Github_Enterprise_Token"
+# kb$set(service = "Github_Enterprise_Token", username = "username", keyring = "Git_Credentials")
 ```
 
 Finally, lock your keyring
 ```{r}
-kb$keyring_lock("Git_Credentials") 
+# kb$keyring_lock("Git_Credentials") 
 ```
 
-Now you can access your PAT safely through your keyring when using the gitissues package setting the PAT argument to:
-kb$get("Github_Enterprise_Token", keyring = "Git_Credentials")
+Now you can access your PAT safely through your keyring when using the gitissues package setting the PAT argument to.
 ```{r}
 # get_issues(github_api_endpoint = "/repos/owner/repo/issues",
 #            url = "https:://api.github.com",
