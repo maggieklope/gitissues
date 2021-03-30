@@ -10,6 +10,6 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: tidyverse, gh, DT
-Suggests: keyring
+Suggests: keyring, knitr, rmarkdown
 VignetteBuilder: knitr
 RoxygenNote: 7.1.0
