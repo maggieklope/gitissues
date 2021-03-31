@@ -3,9 +3,8 @@ Type: Package
 Title: Retrieve info on git repo issues
 Version: 0.1.0
 Author: Maggie Klope
-Maintainer: Maggie Klope <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Maintainer: Maggie Klope <maggie.klope@gmail.com>
+Description: This package will create a dataframe which summarizes the issues on a repo, including the text of the issue, date opened and closed, assigner and assignees, and number of comments.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
