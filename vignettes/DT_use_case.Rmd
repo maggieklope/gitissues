@@ -15,5 +15,11 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
+# issues_df <- get_issues(github_api_endpoint = "/repos/owner/repo/issues",
+#            url = "https:://api.github.com",
+#            repo_owner = "owner",
+#            repo_name = "repo",
+#            PAT = kb$get("Github_Enterprise_Token", keyring = "Git_Credentials"))
 
+# table <- datatable(issues_df,filter = 'top')
 ```
